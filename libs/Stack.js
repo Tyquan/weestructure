@@ -11,13 +11,9 @@ class Stack {
         this.count++;
     }
 
-    // pop() {
-    //     if (this.count == 0) {
-    //         return this.storage;
-    //     }
-    //     this.count--;
-    //     delete this.storage[this.count];
-    // }
+    pop() {
+        return this.collection[--this.count];
+    }
 }
 
 module.exports = Stack;

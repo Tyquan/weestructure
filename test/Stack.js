@@ -26,10 +26,10 @@ describe('Stack Module', () => {
             const stack = new Stack();
             expect(stack.push).to.be.a("function");
         })
-        // it("should have a pop method", () => {
-        //     const stack = new Stack();
-        //     expect(stack.pop).to.be.a("function");
-        // });
+        it("should have a pop method", () => {
+            const stack = new Stack();
+            expect(stack.pop).to.be.a("function");
+        });
     });
 
     describe("push method", () => {
@@ -45,24 +45,25 @@ describe('Stack Module', () => {
         });
     });
 
-    // describe("pop method", ()=> {
-    //     it("return {} if no elements are in the stack", () => {
-    //         const stack = new Stack();
-    //         stack.pop();
-    //         assert.deepEqual(stack.storage, {});
-    //     });
-    //     it("should decrease the count everytime the pop method is called", () => {
-    //         const stack = new Stack();
-    //         stack.push(6);
-    //         stack.pop();
-    //         assert.deepEqual(stack.count, 0);
-    //     });
-    //     it("should remove the last key value pair on the stack", () => {
-    //         const stack = new Stack();
-    //         stack.push(6);
-    //         stack.pop();
-    //         assert.deepEqual(stack.storage, {});
-    //     });
-    // });
+    describe("pop method", ()=> {
+        it("return [] if no elements are in the stack collection", () => {
+            const stack = new Stack();
+            stack.pop();
+            assert.deepEqual(stack.collection, []);
+        });
+        it("should decrease the count everytime the pop method is called", () => {
+            const stack = new Stack();
+            stack.push(6);
+            stack.pop();
+            assert.deepEqual(stack.count, 0);
+        });
+        it("should remove the last element on the stack collection", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.pop();
+            assert.deepEqual(stack.collection, sampleArray);
+        });
+    });
 
 });
