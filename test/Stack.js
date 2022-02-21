@@ -121,7 +121,7 @@ describe('Stack Module', () => {
     });
 
     describe("getLength method", () => {
-        it("should return the first element in the stack collection", () => {
+        it("should return the length of the stack collection", () => {
             const sampleArray = [1,2,3]
             const stack = new Stack(sampleArray);
             stack.push(6);
