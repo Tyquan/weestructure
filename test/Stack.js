@@ -12,9 +12,10 @@ describe('Stack Module', () => {
             const stack = new Stack();
             assert.deepEqual(stack.collection, []);
         });
-        it("should have a count set to zero property by default", () => {
-            const stack = new Stack();
-            assert.deepEqual(stack.count, 0);
+        it("should have a count set to the length of the collection by default", () => {
+            const sampleArray = [1,2,3,4,5];
+            const stack = new Stack(sampleArray);
+            assert.deepEqual(stack.count, stack.collection.length);
         });
         it('Should take an array as an argument on initialization and save it to the collection',
         () => {

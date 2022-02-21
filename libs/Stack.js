@@ -3,7 +3,7 @@
 class Stack {
     constructor(startingArray = []){
         this.collection = startingArray;
-        this.count = 0;
+        this.count = this.collection.length;
     }
 
     push(element){
