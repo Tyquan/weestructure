@@ -1,9 +1,10 @@
 const assert = require('assert');
+const expect = require('chai').expect;
 const Stack = require('../libs/Stack');
 
 describe('Stack Module', () => {
-    describe('Stack.js is a Class Object', () => {
 
+    describe('Stack.js is a Class Object', () => {
         it("should be equal to a class not {}", () => {
             assert.notEqual(Stack, {});
         });
@@ -27,21 +28,21 @@ describe('Stack Module', () => {
         });
         it("should have a push method", () => {
             const stack = new Stack();
+            expect(stack.push).to.be.a("function");
+        })
+    });
+
+    describe("push method", () => {
+        it("should add an element as a key value pair to the storage object", () => {
+            const stack = new Stack();
             stack.push(6);
             assert.deepEqual(stack.storage, {'0': 6});
-        })
-
-        // it("push method should take arrays", () => {
-        //     const sampleArray = [1,2,3,4,5];
-        //     const stack = new Stack(sampleArray);
-        //     stack.push([6,7,8,9,10]);
-        //     assert.deepEqual(stack.collection, [1,2,3,4,5,6,7,8,9,10]);
-        // })
-        // it("", () => {
-        //     // const sampleArray = [1,2,3,4,5];
-        //     // const stack = new Stack(sampleArray);
-        //     // stack.push(6);
-        //     // assert.deepEqual(stack.collection, [1,2,3,4,5,6]);
-        // });
+        });
+        it("count should add 1 every time push is called", () => {
+            const stack = new Stack();
+            stack.push(6);
+            assert.deepEqual(stack.count, 1);
+        });
     });
+
 });
