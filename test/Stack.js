@@ -31,6 +31,10 @@ describe('Stack Module', () => {
             const stack = new Stack();
             expect(stack.pop).to.be.a("function");
         });
+        it("should have a peek method", () => {
+            const stack = new Stack();
+            expect(stack.peek).to.be.a("function");
+        })
     });
 
     describe("push method", () => {
@@ -64,6 +68,17 @@ describe('Stack Module', () => {
             stack.push(6);
             stack.pop();
             assert.deepEqual(stack.collection, sampleArray);
+        });
+    });
+
+    describe("peek method", () => {
+        it("should return the first element in the stack collection", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.push(7);
+            stack.push(8);
+            assert.deepEqual(stack.peek(), 1);
         });
     });
 

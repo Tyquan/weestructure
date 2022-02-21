@@ -14,6 +14,10 @@ class Stack {
     pop() {
         return this.collection[--this.count];
     }
+
+    peek() {
+        return this.collection[this.count - this.count ];
+    }
 }
 
 module.exports = Stack;
