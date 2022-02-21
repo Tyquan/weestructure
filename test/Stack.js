@@ -35,6 +35,10 @@ describe('Stack Module', () => {
             const stack = new Stack();
             expect(stack.peek).to.be.a("function");
         })
+        it("should have a clear method", () => {
+            const stack = new Stack();
+            expect(stack.clear).to.be.a("function");
+        })
     });
 
     describe("push method", () => {
@@ -79,6 +83,36 @@ describe('Stack Module', () => {
             stack.push(7);
             stack.push(8);
             assert.deepEqual(stack.peek(), 1);
+        });
+    });
+
+    describe("clear method", () => {
+        it("should turn stack.collection to []", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.push(7);
+            stack.push(8);
+            stack.clear()
+            assert.deepEqual(stack.collection, []);
+        });
+        it("should turn stack.count to whatever the length of stack.collection", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.push(7);
+            stack.push(8);
+            stack.clear()
+            assert.deepEqual(stack.count, stack.collection.length);
+        });
+        it("should turn stack.count to 0", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.push(7);
+            stack.push(8);
+            stack.clear()
+            assert.deepEqual(stack.count, 0);
         });
     });
 

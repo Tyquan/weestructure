@@ -18,6 +18,11 @@ class Stack {
     peek() {
         return this.collection[this.count - this.count ];
     }
+
+    clear(){
+        this.collection = [];
+        this.count = this.collection.length;
+    }
 }
 
 module.exports = Stack;
