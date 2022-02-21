@@ -23,6 +23,10 @@ class Stack {
         this.collection = [];
         this.count = this.collection.length;
     }
+
+    getLength() {
+        return this.count;
+    }
 }
 
 module.exports = Stack;

@@ -39,6 +39,10 @@ describe('Stack Module', () => {
             const stack = new Stack();
             expect(stack.clear).to.be.a("function");
         })
+        it("should have a getLength method", () => {
+            const stack = new Stack();
+            expect(stack.getLength).to.be.a("function");
+        })
     });
 
     describe("push method", () => {
@@ -113,6 +117,17 @@ describe('Stack Module', () => {
             stack.push(8);
             stack.clear()
             assert.deepEqual(stack.count, 0);
+        });
+    });
+
+    describe("getLength method", () => {
+        it("should return the first element in the stack collection", () => {
+            const sampleArray = [1,2,3]
+            const stack = new Stack(sampleArray);
+            stack.push(6);
+            stack.push(7);
+            stack.push(8);
+            assert.deepEqual(stack.getLength(), 6);
         });
     });
 
