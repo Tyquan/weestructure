@@ -1,5 +1,7 @@
 class Stack {
-    constructor(){}
+    constructor(startingArray = []){
+        this.collection = startingArray;
+    }
 }
 
-module.export = Stack;
+module.exports = Stack;

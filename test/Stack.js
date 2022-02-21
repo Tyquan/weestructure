@@ -2,10 +2,14 @@ const assert = require('assert');
 const Stack = require('../libs/Stack');
 
 describe('Stack Module', () => {
-    console.log("Stack Class:", Stack);
     describe('Stack.js is a Class Object', () => {
-        it("should be equal to a class", () => {
-            assert.deepEqual(Stack, {});
+        console.log("Stack:", Stack);
+        it("should be equal to a class not {}", () => {
+            assert.notEqual(Stack, {});
         });
-    })
+        it("should have a an empty collection property", () => {
+            const stack = new Stack();
+            assert.deepEqual(stack.collection, []);
+        });
+    });
 });
