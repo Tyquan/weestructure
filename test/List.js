@@ -31,18 +31,18 @@ describe("List Module", () => {
         it("should have an find method", () => {
             expect(emptyList.find).to.be.a("function");
         });
+        it("should have an remove method", () => {
+            expect(emptyList.remove).to.be.a("function");
+        });
     });
 
     describe("append method", () => {
-        const numberArray = [1,2,3,4,5];
-        const numberList = new List(numberArray);
-        
         it("should add an element to the list", () => {
             const emptyList = new List();
             emptyList.append(6);
             assert.deepEqual(emptyList.dataStore, [6]);
         });
-        it("count should add 1 to listSize every time append is called", () => {
+        it("should add 1 to listSize every time append is called", () => {
             const emptyList = new List();
             emptyList.append(6);
             assert.deepEqual(emptyList.listSize, 1);
@@ -50,8 +50,6 @@ describe("List Module", () => {
     });
 
     describe("find method", () => {
-        
-        
         it("should return a Number if Element found", () => {
             const numberArray = [1,2,3,4,5];
             const numberList = new List(numberArray);
@@ -69,6 +67,33 @@ describe("List Module", () => {
             const numberList = new List(numberArray);
             const foundElementIndex = numberList.find(5);
             assert.deepEqual(foundElementIndex, 4);
+        });
+    });
+
+    describe("remove method", () => {
+        it("should return -1 if Element not found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            const foundElementIndex = numberList.remove(10);
+            assert.deepEqual(foundElementIndex, -1);
+        });
+        it("should return 1 if Element found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            const foundElementIndex = numberList.remove(2);
+            assert.deepEqual(foundElementIndex, 1);
+        });
+        it("should remove the Element if the index is found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            numberList.remove(2);
+            assert.deepEqual(numberList.dataStore, [1,3,4,5]);
+        });
+        it("should subtract 1 from listSize every time remove is called", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            numberList.remove(2);
+            assert.deepEqual(numberList.listSize, 4);
         });
     });
 
