@@ -1,6 +1,8 @@
 class List {
-    constructor(listSize = 0) {
-        this.listSize = listSize;
+    constructor(startingArray = []) {
+        this.dataStore = startingArray;
+        this.listSize = this.dataStore.length;
+        this.position = 0;
     }
 }
 
