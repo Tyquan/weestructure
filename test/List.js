@@ -4,12 +4,12 @@ const List = require('../libs/List');
 
 describe("List Module", () => {
 
-    
-
     describe("List is a class object", () => {
+
         const numberArray = [1,2,3,4,5];
         const numberList = new List(numberArray);
         const emptyList = new List();   
+        
         it("should be equal to a class not {}", () => {
             assert.notEqual(List, {});
         });
@@ -28,6 +28,9 @@ describe("List Module", () => {
         it("should have an append method", () => {
             expect(emptyList.append).to.be.a("function");
         });
+        it("should have an find method", () => {
+            expect(emptyList.find).to.be.a("function");
+        });
     });
 
     describe("append method", () => {
@@ -43,6 +46,29 @@ describe("List Module", () => {
             const emptyList = new List();
             emptyList.append(6);
             assert.deepEqual(emptyList.listSize, 1);
+        });
+    });
+
+    describe("find method", () => {
+        
+        
+        it("should return a Number if Element found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            const foundElementIndex = numberList.find(2);
+            expect(foundElementIndex).to.be.a("number");
+        });
+        it("should return -1 if Element not found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            const foundElementIndex = numberList.find(10);
+            assert.deepEqual(foundElementIndex, -1);
+        });
+        it("should return the index if Element found", () => {
+            const numberArray = [1,2,3,4,5];
+            const numberList = new List(numberArray);
+            const foundElementIndex = numberList.find(5);
+            assert.deepEqual(foundElementIndex, 4);
         });
     });
 
